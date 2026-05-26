@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramientas y Linters - Exposicion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primario: '#165DFF',   
+                        oscuro: '#0F48C0',      
+                        claro: '#E6F0FF',       
+                        medio: '#4080FF',       
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style> 
+    .contenedor{
+        max-width: 80rem;
+        margin: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .sombra-suave{
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: 0.3s;
+    }
+
+    .sombra-suave:hover{
+        box-shadow: 0 10px 15px rgba(0,0,0,0.15);
+    }
+
+    .texto-azul{
+        color:#165DFF;
+        font-weight:600;
+    }
+    </style>
+</head>
+<body class="bg-claro font-sans text-gray-800 min-h-screen">
+
+    <header class="bg-gradient-to-r from-oscuro to-primario text-white py-10 mb-8">
+        <div class="contenedor text-center">
+            <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold mb-3">
+                <i class="fa fa-code mr-3"></i>Herramientas y Linters
+            </h1>
+            <p class="text-lg opacity-90">Verificacion de Nomenclatura y Convenciones de Codigo</p>
+            <p class="mt-4 text-sm">INTEGRANTES: SOFIA GUZMAN, YULIANA GAMBA Y JUAN DUARTE</p>
+        </div>
+    </header>
+
+    <nav class="contenedor mb-10 bg-white rounded-xl p-4 sombra-suave">
+        <h2 class="text-center text-oscuro font-bold text-xl mb-4">📚 Navegacion por Temas</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            <a href="#tema1" class="bg-claro hover:bg-primario hover:text-white text-primario p-3 rounded-lg text-center font-medium transition-colors">🔹 ESLint</a>
+            <a href="#tema2" class="bg-claro hover:bg-primario hover:text-white text-primario p-3 rounded-lg text-center font-medium transition-colors">🔹 Pylint y flake8</a>
+            <a href="#tema3" class="bg-claro hover:bg-primario hover:text-white text-primario p-3 rounded-lg text-center font-medium transition-colors">🔹 Checkstyle</a>
+            <a href="#tema4" class="bg-claro hover:bg-primario hover:text-white text-primario p-3 rounded-lg text-center font-medium transition-colors">🔹 SonarQube</a>
+            <a href="#tema5" class="bg-claro hover:bg-primario hover:text-white text-primario p-3 rounded-lg text-center font-medium transition-colors">🔹 Pre-commit Hooks</a>
+            <a href="#preguntas" class="bg-medio text-white hover:bg-oscuro p-3 rounded-lg text-center font-medium transition-colors">❓ Preguntas y Respuestas</a>
+        </div>
+    </nav>
+
+    <main class="contenedor space-y-10 mb-16">
+
+        <section id="tema1" class="bg-white rounded-2xl p-6 md:p-8 sombra-suave">
+            <div class="flex items-center mb-5">
+                <div class="w-10 h-10 rounded-full bg-primario text-white flex items-center justify-center mr-4">1</div>
+                <h2 class="text-2xl font-bold text-oscuro">ESLint: Reglas camelCase y naming-convention</h2>
+            </div>
+            <p class="mb-4 leading-relaxed">
+                Es la herramienta estandar para analisis de codigo en JavaScript y TypeScript. Se encarga de revisar que se sigan reglas de estilo y nomenclatura definidas por el equipo o la comunidad.
+            </p>
+            <ul class="list-disc list-inside space-y-2 pl-2 text-gray-700">
+                <li><span class="texto-azul">camelCase:</span> Formato donde la primera letra es minuscula y cada palabra siguiente empieza con mayuscula (ej: <code class="bg-claro px-2 py-0.5 rounded">miVariable</code>, <code class="bg-claro px-2 py-0.5 rounded">calcularTotal</code>). La regla prohibe estilos como <code>mi_variable</code>.</li>
+                <li><span class="texto-azul">naming-convention:</span> Regla avanzada (especial en TS) que permite definir formatos distintos segun el tipo de elemento: variables, clases, tipos, parametros. Es mucho mas flexible y completa.</li>
+            </ul>
+        </section>
+
+        <section id="tema2" class="bg-white rounded-2xl p-6 md:p-8 sombra-suave">
+            <div class="flex items-center mb-5">
+                <div class="w-10 h-10 rounded-full bg-primario text-white flex items-center justify-center mr-4">2</div>
+                <h2 class="text-2xl font-bold text-oscuro">Pylint y flake8 para Python</h2>
+            </div>
+            <p class="mb-4 leading-relaxed">
+                Herramientas fundamentales para Python, basadas en la guia oficial de estilo <strong>PEP 8</strong>. Ambas revisan errores, calidad y convenciones de nombres.
+            </p>
+            <div class="grid md:grid-cols-2 gap-5">
+                <div class="border-l-4 border-medio pl-4">
+                    <h3 class="font-semibold text-lg text-medio mb-2">Pylint</h3>
+                    <div class="text-sm">Muy completo. Exige estrictamente:
+                        <ul class="mt-2 space-y-1">
+                            <li>✅ Funciones/Variables &rarr; <code>snake_case</code></li>
+                            <li>✅ Clases &rarr; <code>PascalCase</code></li>
+                            <li>✅ Constantes &rarr; <code>MAYUSCULAS</code></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-l-4 border-medio pl-4">
+                    <h3 class="font-semibold text-lg text-medio mb-2">flake8</h3>
+                    <div class="text-sm">Mas ligero, combina 3 herramientas:
+                        <ul class="mt-2 space-y-1">
+                            <li>🔍 <code>pyflakes</code>: Encuentra errores logicos</li>
+                            <li>📝 <code>pycodestyle</code>: Revisa estilo PEP8</li>
+                            <li>📊 <code>mccabe</code>: Mide complejidad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tema3" class="bg-white rounded-2xl p-6 md:p-8 sombra-suave">
+            <div class="flex items-center mb-5">
+                <div class="w-10 h-10 rounded-full bg-primario text-white flex items-center justify-center mr-4">3</div>
+                <h2 class="text-2xl font-bold text-oscuro">Checkstyle para Java</h2>
+            </div>
+            <p class="mb-4 leading-relaxed">
+                Herramienta lider y estandar para revisar codigo Java. Se basa en las convenciones oficiales de Oracle, asegurando que todo el equipo escriba codigo identico en estructura y nombres.
+            </p>
+            <div class="bg-claro p-4 rounded-lg">
+                <h3 class="font-semibold mb-2 text-primario">Reglas principales de nomenclatura:</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                    <div>📦 Paquetes: <code>todo.minusculas</code></div>
+                    <div>🏛️ Clases / Interfaces: <code>PascalCase</code></div>
+                    <div>⚙️ Metodos / Variables: <code>camelCase</code></div>
+                    <div>💎 Constantes: <code>UPPER_SNAKE_CASE</code></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tema4" class="bg-white rounded-2xl p-6 md:p-8 sombra-suave">
+            <div class="flex items-center mb-5">
+                <div class="w-10 h-10 rounded-full bg-primario text-white flex items-center justify-center mr-4">4</div>
+                <h2 class="text-2xl font-bold text-oscuro">SonarQube: Analisis Estatico</h2>
+            </div>
+            <p class="mb-4 leading-relaxed">
+                Plataforma completa de calidad de codigo que funciona con casi cualquier lenguaje. No solo revisa nombres, sino seguridad, errores, duplicidad, mantenibilidad y mas.
+            </p>
+            <div class="space-y-3 text-gray-700">
+                <p>✅ Detecta nombres incorrectos, confusos, muy cortos o largos.</p>
+                <p>✅ Genera informes, graficos y alertas centralizadas.</p>
+                <p>✅ Se integra con linters locales y pipelines de CI/CD.</p>
+                <p class="italic text-sm">Actua como el "inspector de calidad" de todo el proyecto.</p>
+            </div>
+        </section>
+
+        <section id="tema5" class="bg-white rounded-2xl p-6 md:p-8 sombra-suave">
+            <div class="flex items-center mb-5">
+                <div class="w-10 h-10 rounded-full bg-primario text-white flex items-center justify-center mr-4">5</div>
+                <h2 class="text-2xl font-bold text-oscuro">Pre-commit Hooks: Validacion Automatica</h2>
+            </div>
+            <p class="mb-4 leading-relaxed">
+                Son scripts que se configuran en Git y se ejecutan <strong>antes de permitirte guardar o subir cambios al repositorio</strong>.
+            </p>
+            <div class="bg-gradient-to-r from-claro to-white p-5 rounded-xl border border-medio/20">
+                <p class="mb-2">⚙️ Se programan para correr ESLint, Pylint, Checkstyle, etc., automaticamente.</p>
+                <p>✅ <strong>Si todo esta bien:</strong> Permite guardar el cambio.</p>
+                <p>❌ <strong>Si hay errores:</strong> Bloquea la accion hasta corregir.</p>
+                <p class="mt-3 font-medium text-oscuro">Garantiza que ningun codigo incorrecto o que no cumpla reglas llegue al proyecto final.</p>
+            </div>
+        </section>
+
+        <section id="preguntas" class="bg-white rounded-2xl p-6 md:p-8 sombra-suave border-2 border-medio/30">
+            <div class="flex items-center mb-6">
+                <div class="w-10 h-10 rounded-full bg-medio text-white flex items-center justify-center mr-4">❓</div>
+                <h2 class="text-2xl font-bold text-oscuro">Preguntas y Respuestas</h2>
+            </div>
+
+            <div class="mb-8 pb-6 border-b border-gray-200">
+                <h3 class="font-bold text-lg text-primario mb-3">1. ¿Como se configura ESLint para forzar camelCase?</h3>
+                <p class="mb-2">Se instala y edita el archivo de configuracion <code>.eslintrc.json</code>:</p>
+<pre class="bg-claro p-3 rounded text-sm overflow-x-auto">
+{
+  "rules": {
+    "camelcase": ["error", {
+      "properties": "always",
+      "ignoreDestructuring": false
+    }]
+  }
+}
+</pre>
+                <p class="mt-2 text-gray-700">Marca error si no se usa el formato correcto. En TypeScript se usa la regla mas avanzada <code>@typescript-eslint/naming-convention</code>.</p>
+            </div>
+
+            <div class="mb-8 pb-6 border-b border-gray-200">
+                <h3 class="font-bold text-lg text-primario mb-3">2. Reglas de Pylint para convenciones</h3>
+                <p class="mb-2">La regla principal es <span class="font-mono bg-claro px-1">invalid-name</span>, que valida contra PEP 8:</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-700 mb-2">
+                    <li>Funciones/variables &rarr; <code>snake_case</code></li>
+                    <li>Clases &rarr; <code>PascalCase</code></li>
+                    <li>Constantes &rarr; <code>MAYUSCULAS</code></li>
+                </ul>
+                <p>Otras reglas: <code>too-short-name</code>, <code>too-long-name</code>, <code>mixed-case-variable-name</code>. Se configuran en el archivo <code>.pylintrc</code>.</p>
+            </div>
+
+            <div class="mb-8 pb-6 border-b border-gray-200">
+                <h3 class="font-bold text-lg text-primario mb-3">3. Integracion en GitHub Actions (CI/CD)</h3>
+                <p class="mb-2">Se crea el archivo <code>.github/workflows/lint.yml</code>:</p>
+<pre class="bg-claro p-3 rounded text-sm overflow-x-auto">
+name: Revisar Codigo
+on: [push, pull_request]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+      - run: npx eslint . # o pylint, flake8...
+</pre>
+                <p class="mt-2 text-gray-700">Si el linter encuentra errores, el proceso falla y bloquea la fusion del codigo.</p>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-lg text-primario mb-3">4. ¿Renombrar automaticamente con linter?</h3>
+                <p class="mb-2"><strong>Si, pero con condiciones:</strong></p>
+                <ul class="space-y-2 text-gray-700">
+                    <li>✅ <strong>ESLint:</strong> Si, con el comando <code>npx eslint . --fix</code>. Cambia <code>mi_variable</code> &rarr; <code>miVariable</code> automaticamente.</li>
+                    <li>❌ <strong>Pylint / flake8:</strong> No renombran, solo avisan. Se usan herramientas extra como <code>autopep8</code> o <code>rope</code>.</li>
+                    <li>⚠️ <strong>Limitacion:</strong> Solo corrige el <em>formato</em>, no el significado ni nombres complejos o ambiguos.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-oscuro text-white text-center py-6 text-sm">
+        <div class="contenedor">
+            <p>Exposicion | Herramientas y Linters</p>
+            <p class="mt-1 opacity-70">2026</p>
+        </div>
+    </footer>
+
+</body>
+</html>
